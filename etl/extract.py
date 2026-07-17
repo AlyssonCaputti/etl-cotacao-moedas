@@ -8,7 +8,7 @@ import json
 import requests
 
 URL = "https://economia.awesomeapi.com.br/json/last/{pares}"
-PARES = ["USD-BRL", "EUR-BRL"]
+PARES = ["USD-BRL", "EUR-BRL", "BTC-BRL"]
 
 
 def extrair():
