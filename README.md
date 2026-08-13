@@ -13,7 +13,7 @@ AwesomeAPI  ──(extract)──>  JSON cru  ──(transform)──>  linhas l
 - **extract** (`etl/extract.py`): busca USD, EUR e BTC contra o Real na
   [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) (grátis, sem chave).
   Se a API estiver fora, usa um exemplo salvo em `dados/exemplo.json`.
-- **transform** (`etl/transform.py`): a API manda tudo como texto — aqui eu
+- **transform** (`etl/transform.py`): a API manda tudo como texto, aqui eu
   converto pra número/data, monto o par (`USD/BRL`) e organizo as colunas.
 - **load** (`etl/load.py`): cria a tabela `cotacoes` (se não existir) e insere.
   Tem um `UNIQUE (par, data_cotacao)` + `ON CONFLICT DO NOTHING` pra não
@@ -40,7 +40,7 @@ SQL e rodar as queries de `consultas_exemplo.sql`.
 
 A ideia é rodar o `main.py` periodicamente pra ir montando um histórico. Dá
 pra agendar com o cron (Linux) ou o Agendador de Tarefas (Windows). Não coloquei
-Airflow nem nada disso de propósito — pra um projeto desse tamanho seria demais.
+Airflow nem nada disso de propósito: pra um projeto desse tamanho seria demais.
 
 ## Estrutura
 
